@@ -20,7 +20,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Self-help",
+    categoryName: "self-help",
     description:
       "It helps the use of one's own efforts and resources to achieve things without relying on others",
   },

@@ -106,7 +106,7 @@ return (
       <ol style={{listStyle:"none"}}>
       <label>
       <li><input type="checkbox" value={"fiction"} checked={selectCategories.includes("fiction")} onChange={handlerCategoriesChange} />Fiction</li></label><label>
-      <li><input type="checkbox" value={"non-fiction"} checked={selectCategories.includes("non-fiction")} onChange={handlerCategoriesChange} />Non Fiction</li></label><label>
+      <li><input type="checkbox" value={"non-fiction"} checked={selectCategories.includes("non-fiction")} onChange={handlerCategoriesChange} />Non-Fiction</li></label><label>
       <li><input type="checkbox" value={"self-help"} checked={selectCategories.includes("self-help")} onChange={handlerCategoriesChange}/>Self Help</li></label>
        
       </ol>
