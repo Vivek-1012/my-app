@@ -1,51 +1,389 @@
-.App {
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* color: white; */
+    
+     }
+
+ 
+  /* home page display */
+  .Homelayout{
+    display: flex;
+    flex-direction: column;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  /* justify-content: center; */
   }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+ 
+ .homeWallpaper{
+  background-image: url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80);
+  border-radius: 1rem;
+  width: 90%;
+  margin-left: 5rem;
+  height: 50vh;
+  
+  }
+  .Hometitle{
+  top:6rem;
+  position: absolute;
+  right: 67rem;
+  font-size: 4rem;
+  font-weight: bold;  
   color: white;
+  text-shadow: 0 0 3px gray, 0 0 10px black
 }
 
-.App-link {
-  color: #61dafb;
-}
+  .ExploreButton{
+   cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    position:absolute;
+    height: 4rem;
+    top: 13rem;
+    border-radius: 1rem;
+    font-size: 25px;
+    width: 8rem;
+    right: 80rem;
+  }
+  
+  .ExploreButton:hover{
+   background-color:white;
+   transform: translateY(-4px);
+  box-shadow: 0 5px #666;
+   
+  }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
 
-.brand-title span {
-  color: #ffde59;
-}
+ .categoriesItem{
+    
+  padding: 1.5rem;
+  border: 1px solid black;
+ }
 
-.brand-description {
-  font-size: 1.4rem;
-}
+ .categoriesItem{
+  width: 200px;
+  height: 200px;
+  padding: 15px 25px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #0994ad;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 9px #999;
+  }
+ 
+ 
+ .categoriesItem:hover {background-color: #66b9e5}
+ .categoriesItem:active {
+  background-color: #51b9c5;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);}
 
-.links {
+  .storeDisplay{
+    display: flex;
+  }
+  /* navbar   */
+  .navbar{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    background-color:#9395d3;
+    margin-bottom: 1rem;
+  } 
+ .NavSearch{
+  
+  padding: 0.5rem;
+  width: 18rem;
+  border-radius: 1rem;
+
+ }
+  .navItem{
+    text-decoration: none;
+    /* padding: 1rem; */
+    margin-right: 15px;
+    font-size: 20px;
+    color: white;
+    background-color:#9395d3;
+  }
+  
+  .filterDisplay{
+    position: relative;
+    margin: 0.5rem 1rem 0.5rem 1rem  ; 
+    padding: 1rem;
+    width: 15%;
+    border-right: 2px solid black;
+    
+  }
+
+  .filterHeading{
+    padding: 1rem 0 0 0 ;
+    font-weight: bold;
+  }
+  /* Product List  */
+  .itemDisplay{
+   
+    display: flex;
+   list-style: none;
+   text-align: center;
+   flex-wrap: wrap;
+  }
+  
+  .booksDisplay{
+   width: 90%;
+   
+  }
+  .cartButtonDiv{
+    justify-content: flex-end;
+  }
+  .cartButton{
+    width: 100%;
+    padding: 1rem;
+    font-size: 20px;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    align-self: flex-end;
+    color: white;
+
+  /* position: relative; */
+  bottom: 1rem;
+  }
+  .cartButton{
+    text-decoration: none;
+    background-color:#6a6db9;
+  }
+  
+  .cartButton:hover{
+    background-color:#8a8df3;
+  }
+  .accountDetails{
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    padding: 0.3rem;
+  }
+  
+  .itemDisplayCard{
+    /* border: 1px solid; */
+    width: 35vh;
+    
+    
+    padding: 1.3rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 grey, 0 1.5px 5px 0 grey;
+    color: black;
+   
+  }
+  
+  .itemDisplayCard:hover{
+    box-shadow: 0 2px 4px 0 black, 0 3px 10px 0 black;
+  
+  }
+  
+  .displayCardTitle , .displayCardAuthor, .displayCardPrice, .displayCardCategory, .displayCardRating,.displayCardActualPrice,.displayCardDiscount,.displayCardCrossPrice {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  .displayCardActualPrice,.displayCardDiscount,.displayCardCrossPrice,.displayCardPrice{
+    margin-right: 0.5rem;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .displayCardPrice{
+    font-size: 17px;
+    position: relative;
+    bottom: 2px;
+  
+  }
+  .displayCardActualPrice{
+    position: relative;
+    font-size: 13px;
+  }
+  .displayCardCrossPrice{
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    bottom: 0.2rem;
+    right: 1.2rem;
+    margin: 0;
+    padding: 0;
+    position:relative ;
+    font-weight: lighter;
+  }
+  
+  .displayCardAuthor{
+    display: flex;
+    color:black;
+    font-size: 13px;
+    align-items: flex-start;
+  }
+  
+  .displayCardTitle{
+    align-self: center;
+  }
+  
+  .titleAndRating{
+    display: flex;
+    justify-content: space-between;
+   }
+  
+  .displayCardRating{
+    justify-self: flex-end;
+    background-color: rgb(13, 206, 13);
+    border: 1px solid black;
+    width: 2.5rem;
+    padding: 0.1mm;
+   font-size: 15px;
+    height: 22px;
+    border-radius: 0.8rem;
+    color: black;
+  }
+  
+ /* auth page css   */
+  .AuthFormLayout{
+    background-color:black;
+    color: white;
+    opacity: 0.9;
+    width: 27rem;
+    border: 1px solid black;
+    padding: 10px;
+ 
+     border-radius: 1rem;
+  }
+ .AuthForm{
   display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 1rem;
+ }
+ .AuthWallpaper{
+  width: 25rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  background-image: url(https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif);
+  
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
+.AuthWallpaper2{
+  width: 30%;
+  border: 1px solid;
+  border-radius: 1rem;
+  background-image: url(https://media.giphy.com/media/3ogwFMmWP1yj9vx4qs/giphy.gif);
+  
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ /* .AuthBody{
+  height: 105vh;
+  background-image: url(https://wallpaperaccess.com/full/124383.jpg);
+  box-shadow:  0 12px 20px 10px black;
+  
+  
+ } */
+  
+.AuthForminput{
+  background-color: white;
+  padding: 0.3rem ;
+  border-radius: 0.5rem;
+ 
+}
+.AuthFormButton3 {
+ cursor: pointer;
+  padding: 1rem;
   margin: 1rem;
+  font-size: 15px;
+  background-color: #9395d3;
+  width: 90%;
+}
+.AuthFormButton1 {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 15px;
+  background-color: #9395d3;
+  width: 40%;
+}
+.AuthFormButton2{
+  cursor: pointer;
+  background-color: #d3ad93;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 15px;
+  width: 40%;
+}
+
+/* cart page css */
+
+.imageCartDisplay{
+  padding: 1rem;
+  }
+  
+  .CartitemDisplayCard{
+  
+  padding: 1.3rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px 0 gray, 0 3px 10px 0 gray;;
+    color: black;
+  }
+  .cartButton{
+    width: 12rem;
+    padding: 0.5rem;
+  }
+  .CartBillButton{
+    width: 9rem;
+    padding: 0.5rem;
+  }
+
+  .btnCart{
+    margin: 0 7px 5px 7px;
+  font-size: 20px;
+  
+  
+  height: 20%;
+  width: 15%;
+  align-self:center;
+  }
+  
+
+.billLayout{
+  border: 1px solid black;
+  width: 40vh;
+  padding: 1.5rem;
+}
+
+.PriceDetails{
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.cartBillitemDisplay{
+  list-style: none;
+  display: flex-column;
+}
+
+.billLayoutCoupon,.billLayoutPrice,.billLayouttotalBill,.billLayoutCoupon,.billLayoutDelivery{
+  display: flex;
+  justify-content: space-between;
+ text-transform: capitalize;
+}
+.billLayouttotalBill{
+  border-top: 1px solid black;
+  padding-top: 0.5rem;
+  
 }

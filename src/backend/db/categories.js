@@ -20,8 +20,8 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Self-help",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "It helps the use of one's own efforts and resources to achieve things without relying on others",
   },
 ];
