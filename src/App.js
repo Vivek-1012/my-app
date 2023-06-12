@@ -15,6 +15,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import PlacedorderPage from "./pages/PlacedorderPage";
 import { useCart } from "./contexts/CartContext";
 import { useWishlist } from "./contexts/WishlistContext";
+import SingleProductPage from "./pages/SingleProductPage";
  
 
 
@@ -53,6 +54,7 @@ return (
       <Route path='/signUp' element={<SignUpPage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/order_summary" element={<PlacedorderPage />} />
+      <Route path="/productDetails/:ProductID" element={<SingleProductPage />} />
      </Routes>
 
 

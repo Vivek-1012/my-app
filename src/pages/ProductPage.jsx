@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const ProductPage = () => {
   
-  const{productList,input, setInput,selectCategories,setSelectCategories} = useData();
+  const{handleSinglePage,productList,input, setInput,selectCategories,setSelectCategories} = useData();
   const{handleAddToCart}= useCart();
   const {wishlistItem,handleAddToWishlist}= useWishlist(); 
   const {cartList}=useCart()
@@ -146,7 +146,7 @@ return (
     <li className='itemDisplayCard' key={_id}>
       
       <div><img src={image} alt={title} width={150} height={200} /></div>     <div className='titleAndRating'>
-      <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}  to={`/ProductDetails/${_id}`}>{title}</p>
+      <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}><Link to={`/productDetails/${_id}`}  >{title}</Link></p>
       <p className='displayCardRating'> {rating}★</p>
       </div>
       <p className='displayCardAuthor' >{author}</p>

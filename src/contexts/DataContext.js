@@ -44,6 +44,8 @@ export function DataProvider({children}){
         return <div>Loading..</div>
     }
 
+    
+
          
     return(
     <DataContext.Provider value={{inputHandler,selectCategories,setSelectCategories,categoriesList,input,setInput,productList}} >

@@ -9,9 +9,9 @@ const HomePage = () => {
       <>
       <div className='Homelayout' >
     <div style={{display:"flex"}} >
-    <div className='homeWallpaper' ></div>
+    <div className='homeWallpaper'>
     <Link to='/product'  ><button className='ExploreButton'  > Explore </button></Link>
-    <p className='Hometitle' >Pustak<span style={{color:"black"}} >भंडार</span></p>
+    <p className='Hometitle' >Pustak<span style={{color:"black"}} >भंडार</span></p></div>
     </div>
     <div style={{margin:"1rem",padding:"2rem" }} >
       <div style={{display:"flex",listStyle:"none",justifyContent:"space-around",flexWrap:"wrap"}}>      {categoriesList.categories?.map((item)=>{

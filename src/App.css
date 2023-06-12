@@ -323,6 +323,26 @@
   width: 40%;
 }
 
+/* single page layout */
+
+.singlePageLayout{
+  /* margin: 0; */
+  box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
+  border-radius: 1rem;
+    
+  /* position: absolute; */
+  
+  padding: 10px;
+}
+
+.singlePageLayoutCard{
+  display: flex;
+  flex-wrap: wrap;
+}
+.singlePageLayoutImage{
+  padding: 1.5rem;
+}
+
 /* cart page css */
 
 .imageCartDisplay{
