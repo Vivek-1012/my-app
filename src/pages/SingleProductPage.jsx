@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useData } from '../contexts/DataContext';
 
 const SingleProductPage = () => {
@@ -8,7 +8,7 @@ const SingleProductPage = () => {
  const {productList}= useData()
 
   const ProductDetails = productList.products?.find((lst)=> lst._id === ProductID)
-console.log("ProductDetails")
+
 
 
   return (
@@ -42,9 +42,16 @@ console.log("ProductDetails")
         <p><strong> Binding</strong> :  Hardcover </p>  
         <p><strong>  Language</strong> : English </p>  
         </div>
-        <button>Add to Cart</button>
-        <button>Add to WishList</button>
+        {/* {
+          cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"black"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
+          
+        }
+        { wishlistItem.wishlist?.find(({_id})=> _id === ProductDetails._id )
+          ?<Link to="/wishlist" ><button className='cartButton' style={{backgroundColor:"blue"}} >Go to wishlist</button></Link>:<button className='cartButton' onClick={()=>handleAddToWishlist(product)} >Add to wishlist</button>
+          } */}
         </div>
+        <Link to="/product" style={{textDecoration:"none",fontWeight:"bold"}} > Back to Shop </Link>
+
         </div>
         </div>
         </div>
