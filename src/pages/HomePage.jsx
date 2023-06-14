@@ -7,11 +7,16 @@ const HomePage = () => {
    
    return (
       <>
+      <body className='homeBackground'>
+        
+      
       <div className='Homelayout' >
-    <div style={{display:"flex"}} >
+    <div style={{display:"flex",justifyContent:"center"}} >
     <div className='homeWallpaper'>
-    <Link to='/product'  ><button className='ExploreButton'  > Explore </button></Link>
-    <p className='Hometitle' >Pustak<span style={{color:"black"}} >भंडार</span></p></div>
+    <p className='Hometitle' >Pustak<span  >भंडार</span></p>
+
+    <Link to='/product'  ><button className='ExploreButton'> Explore </button></Link>
+    </div>
     </div>
     <div style={{margin:"1rem",padding:"2rem" }} >
       <div style={{display:"flex",listStyle:"none",justifyContent:"space-around",flexWrap:"wrap"}}>      {categoriesList.categories?.map((item)=>{
@@ -26,7 +31,7 @@ const HomePage = () => {
 
     </div>
     </div>
-     
+    </body>  
   </>
   )
 }

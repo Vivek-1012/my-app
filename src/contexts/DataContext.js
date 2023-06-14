@@ -41,7 +41,7 @@ export function DataProvider({children}){
     }
 
     if(isLoading){
-        return <div>Loading..</div>
+        return  <div className="loaderLayout" ><div class="loader"></div></div>
     }
 
     

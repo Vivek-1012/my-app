@@ -8,7 +8,29 @@
     /* color: white; */
     
      }
+/* loader css */
+.loaderLayout{
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
 
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
  
   /* home page display */
   .Homelayout{
@@ -17,36 +39,46 @@
   text-align: center;
   /* justify-content: center; */
   }
- 
+
+  .homeBackground{
+    /* background-color: black; */
+  background-image: url(https://images.unsplash.com/photo-1614620026694-f5f38182ab9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
  .homeWallpaper{
-  background-image: url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=773&q=80);
-  border-radius: 1rem;
-  width: 90%;
-  margin-left: 5rem;
-  height: 50vh;
+  background-color: black;
+  border-radius: 2rem;
+  /* width: 90%; */
+  /* margin-left: 5rem; */
+  height: 45vh;
+  width: 80%;
+opacity: 0.8;
+ margin-top: 1rem;
   
   }
   .Hometitle{
-  top:6rem;
-  position: absolute;
-  right: 67rem;
+  padding: 1rem;
   font-size: 4rem;
   font-weight: bold;  
   color: white;
-  text-shadow: 0 0 3px gray, 0 0 10px black
+  text-shadow: 0 0 3px gray, 0 0 10px black 
 }
 
   .ExploreButton{
-   cursor: pointer;
+    cursor: pointer;
     font-weight: bold;
-    background-color: transparent;
-    position:absolute;
+    /* background-color: transparent; */
+  
     height: 4rem;
-    top: 13rem;
+    
     border-radius: 1rem;
     font-size: 25px;
     width: 8rem;
-    right: 80rem;
+    
   }
   
   .ExploreButton:hover{
@@ -132,6 +164,8 @@
    list-style: none;
    text-align: center;
    flex-wrap: wrap;
+   align-content: center;
+   justify-content: center;
   }
   
   .booksDisplay{
