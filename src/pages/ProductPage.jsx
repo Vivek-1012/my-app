@@ -3,97 +3,32 @@ import { useData } from '../contexts/DataContext'
 import { useCart } from '../contexts/CartContext'
 import { useWishlist } from '../contexts/WishlistContext'
 import { Link } from 'react-router-dom'
+import Navbutton from '../component/Navbutton'
+import FilterNavbar from '../component/FilterNavbar'
  
 
 const ProductPage = () => {
   
-  const{handleSinglePage,productList,input, setInput,selectCategories,setSelectCategories} = useData();
+  const{handleSinglePage,productList,input, setInput, setStore,selectCategories,setSelectCategories} = useData();
   const{handleAddToCart}= useCart();
   const {wishlistItem,handleAddToWishlist}= useWishlist(); 
   const {cartList}=useCart()
+  const [sideFilterNavbar,setsideFilterNavbar] = useState(false)
   
-  const [selectPriceRange,setSelectPriceRange] = useState(0);
+const {selectRating,handlerToCLear,handlerRateByChange,handlerSortByChange,handlerPriceRangeChange,handlerCategoriesChange,selectSortBy,selectPriceRange} = useData()
   
-  const [selectRating, setSelectRating] = useState("");
-  const [selectSortBy,setSelectSortBy]= useState("")
-  
- 
-  
-  let setStore = productList.products; 
-
-
+ console.log(sideFilterNavbar)
   
   
-//event handlers
- const handlerToCLear = () =>{
-  setSelectPriceRange(0);
-  setSelectSortBy("")
-  setSelectRating("")
-  setInput("")
-  setSelectCategories("")
-}
 
-
-const handlerPriceRangeChange = (event)=> setSelectPriceRange(event.target.value)
- 
-const handlerSortByChange = (event) => setSelectSortBy(event.target.value);
-   
-const handlerRateByChange = (event) =>setSelectRating(event.target.value)
-
-const handlerCategoriesChange = (event)=>{ 
-  
-  if(selectCategories.includes(event.target.value )){
-    setSelectCategories(prev => prev.filter(item => item !== event.target.value))
-  }else{
-    setSelectCategories((prev) => [...prev , event.target.value])
-  }
-}
-
-
-
-
-if(selectCategories){
-  setStore = setStore.filter(lst=> selectCategories.includes(lst.categoryName))
-}
-
-
-
-
-if(selectPriceRange){
-  setStore = setStore?.filter(lst=> lst.price >= selectPriceRange)
-}
 
  
-if(input){
-  setStore = input === "" ? setStore : setStore.filter((lst) => lst.title.toLowerCase().includes(input.toLowerCase()));
-  }
-
-
-
- if(selectRating){
-  setStore = setStore.filter(lst=> lst.rating >= JSON.parse(selectRating) )
- }
-
-
-if(selectSortBy){
-  if(selectSortBy==="All"){
-    setStore = selectSortBy === "All"? setStore : "";
-  }if(selectSortBy === "Low"){
-    setStore.sort((a,b)=> b.price - a.price)
-  }if(selectSortBy === "High"){
-    setStore.sort((a,b)=> a.price - b.price)
-  }
-}
-
-
-
-
-
 return (
 <>
     <div className='storeDisplay'>
 
-      <div className='filterDisplay'>
+    <div className='filterDisplay'>
+
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}} >
         <h2>Filter</h2>
         <h4 onClick={()=>handlerToCLear()} style={{cursor:"pointer"}} > Clear </h4></div>
@@ -134,7 +69,12 @@ return (
     </ol> 
     </div>
       </div>
+
+      
       <div className='booksDisplay'>
+        <button onClick={()=>setsideFilterNavbar(!sideFilterNavbar)} className='BtnMobileNavICon'> <Navbutton /> </button>
+{ sideFilterNavbar && <div><FilterNavbar /></div>}
+  
     <h2>Showing All Products</h2>
     {setStore?.length} items
     {setStore?.length === 0 ?<p style={{fontSize:"40px",padding:"1rem",margin:"1rem"}} > "No Item to show... 🤐"</p>:
@@ -145,8 +85,12 @@ return (
       return (
     <li className='itemDisplayCard' key={_id}>
       
-      <div><img src={image} alt={title} width={150} height={200} /></div>     <div className='titleAndRating'>
-      <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}><Link to={`/productDetails/${_id}`}  >{title}</Link></p>
+      <div><img src={image} alt={title} width={150} height={200} style={{position:"relative"}} />
+      <div className='wishlistIcon' >{ wishlistItem.wishlist?.find(({_id})=> _id === product._id )
+          ?<Link to="/wishlist" ><p ><img src={`https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png`} height={45} alt="" /></p></Link>:<p onClick={()=>handleAddToWishlist(product)} ><img src={`https://img.icons8.com/?size=512&id=104&format=png` }  height={40} alt="" /></p>
+          }</div>
+      </div>     <div className='titleAndRating'>
+      <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}><Link to={`/productDetails/${_id}`}>{title}</Link></p>
       <p className='displayCardRating'> {rating}★</p>
       </div>
       <p className='displayCardAuthor' >{author}</p>
@@ -159,9 +103,7 @@ return (
       
 
       <div className='cartButtonDiv'>
-        { wishlistItem.wishlist?.find(({_id})=> _id === product._id )
-          ?<Link to="/wishlist" ><button className='cartButton' style={{backgroundColor:"blue"}} >Go to wishlist</button></Link>:<button className='cartButton' onClick={()=>handleAddToWishlist(product)} >Add to wishlist</button>
-          }
+        
         {
           cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"black"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
           

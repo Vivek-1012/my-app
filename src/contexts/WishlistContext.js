@@ -14,7 +14,7 @@ export function WishlistProvider({children}){
         const response = await fetch("/api/user/wishlist",
         
         {
-            method:"POST",
+             method:"POST",
              headers: ({authorization: token }),
              body: JSON.stringify({product}),
         })  

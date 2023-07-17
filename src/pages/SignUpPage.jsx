@@ -37,8 +37,8 @@ const SignUpPage = () => {
         <label htmlFor='Password'>Confirm Password</label>
         <input className='AuthForminput' type="password"  name="Password" id="Password" />
       
-    <h3>Add Address</h3>
-        <label htmlFor='HouseNo'>HouseNo</label>
+    {/* <h3>Add Address</h3> */}
+        {/* <label htmlFor='HouseNo'>HouseNo</label>
         <input className='AuthForminput' type="text"  onChange={(e)=>setuserRegistration((prv)=>({...prv,HouseNo:e.target.value}))} name="Firstname" id="Firstname" autoComplete="off" />
       
       
@@ -50,7 +50,7 @@ const SignUpPage = () => {
       
       
         <label htmlFor='Country'>Country</label>
-        <input className='AuthForminput' type="text"  onChange={(e)=>setuserRegistration((prv)=>({...prv,Country:e.target.value}))} name="Password" id="Password" />
+        <input className='AuthForminput' type="text"  onChange={(e)=>setuserRegistration((prv)=>({...prv,Country:e.target.value}))} name="Password" id="Password" /> */}
        </div>
         <button className='AuthFormButton3' type="submit" onClick={()=>handleToSignUp()}>Registration</button>
       <div style={{textAlign:"center",borderRadius:"1rem",backgroundColor:"white",width: "45%", alignSelf: "center",padding: "0.5rem"}} >

@@ -170,8 +170,7 @@ export const products = [
     discount: "15%",
     categoryName: "fiction",
     rating: 4.5,
-    wishList: false,
-    
+    wishList: false,    
     cart:false 
   },
 ];

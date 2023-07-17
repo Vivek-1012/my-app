@@ -16,6 +16,7 @@ import PlacedorderPage from "./pages/PlacedorderPage";
 import { useCart } from "./contexts/CartContext";
 import { useWishlist } from "./contexts/WishlistContext";
 import SingleProductPage from "./pages/SingleProductPage";
+import Footer from "./component/icons/Footer";
  
 
 
@@ -35,12 +36,10 @@ return (
     <NavLink to="/product" ><input to="/product" className="NavSearch" type="text" value={input} onChange={inputHandler} placeholder="Search..." /></NavLink>
         </div>
         <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}} >
-        <NavLink className="navItem" to="/product" > Shop </NavLink>|| 
-        <NavLink className="navItem" to="/wishlist" > 🤍{wishlistItem.wishlist?.length} </NavLink>|| 
-        <NavLink className="navItem" to="/cart" > 🛒{cartList.cart?.length} </NavLink>|| 
-        <NavLink className="navItem" to="/profile" > 👤 </NavLink> 
-        
-        
+        <NavLink className="navItem" to="/product" > Shop </NavLink> 
+        <NavLink className="navItem" to="/wishlist" > 🤍{wishlistItem.wishlist?.length} </NavLink>  
+        <NavLink className="navItem" to="/cart" > 🛒{cartList.cart?.length} </NavLink> 
+        <NavLink className="navItem" to="/profile" > 👤 </NavLink>        
         </div>
       </nav>
      <Routes>
@@ -56,6 +55,7 @@ return (
       <Route path="/order_summary" element={<PlacedorderPage />} />
       <Route path="/productDetails/:ProductID" element={<SingleProductPage />} />
      </Routes>
+     <footer> <Footer/> </footer>
 
 
     </div>

@@ -67,6 +67,8 @@ export function CartProvider({children}){
     }
   }
 
+
+  
  
 
    return(<CartContext.Provider  value={{handleRemoveFromCart,finalAmount,discountedAmount,setDiscountedAmount,setfinalAmount,token,handleAddToCart,cartList,handleQuantityForCart}} >

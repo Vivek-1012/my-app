@@ -1,29 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
+import { useData } from '../contexts/DataContext'
 
 const CheckoutPage = () => {
   const {userRegistration} = useAuth()
+  const {addressRecord}=useData()
   const {cartList,finalAmount,discountedAmount,setDiscountedAmount}=useCart();
   const selectCartItem = cartList.cart
-  
+  const [chooseAddress,setChooseAddress] = useState()
   const amountDiscounted = finalAmount - finalAmount/10
   setDiscountedAmount(amountDiscounted )
+  console.log(chooseAddress)
   
   return (
   <>
     <div>CheckoutPage</div>
     <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}} >
         
-        <div>
-            <div>
-                <h2>User Address</h2>
-                <p>House No: {userRegistration.HouseNo} </p>
-                <p>City: {userRegistration.City} </p>
-                <p>State: {userRegistration.State} </p>
-                <p>Country:  {userRegistration.Country}</p>
-                <p>Phone no: </p>
+        <div style={{margin:"1rem"}} >
+            <h2>Choose Address</h2>
+            <div  >
+                <ol style={{listStyle:"none",display:"flex",flexDirection:"column"}}>{addressRecord.map((item)=>{
+                    const {HouseNo,Locality,City,District,Pincode,State,id} = item;
+                    return(
+                <li key={id} style={{width:"18rem"}} >
+                    <div key={id}>
+                    <input type="radio" onChange={(e)=>setChooseAddress(e.target.value)} value={``} name="" id="" /> 
+                    {HouseNo},{Locality},{City},{District},{Pincode},{State}</div>
+                    
+                </li>)}
+                )}
+
+                </ol>
+                <Link style={{textDecoration:"none",color:"black",padding:"0 0.5rem",background:"lightblue",borderRadius:"0.5rem"}}  to="/profile" >Add adress</Link>
             </div>
         </div>
        
@@ -58,9 +69,7 @@ const CheckoutPage = () => {
             </div>
             <div style={{borderBottom:"2px solid black",paddingBottom:"0.5rem"}}>
                 <p> <strong>Deliver to:</strong> </p>
-                <p>Phone Number: {userRegistration.Phoneno} </p>
-                <p>{userRegistration.HouseNo}, {userRegistration.City}, {userRegistration.State}, </p>
-                <p>{userRegistration.Country}</p>
+                <p>{chooseAddress}</p>
                             </div>
                             <p><strong>Mode of payment : </strong>
                                  <select>

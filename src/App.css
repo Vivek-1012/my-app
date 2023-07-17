@@ -109,7 +109,14 @@ opacity: 0.8;
     border-radius: 50%;
     box-shadow: 0 9px #999;
   }
- 
+ .wishlistIcon{
+  position: relative;
+  top: -13.9rem;
+  left:11.5rem;
+  
+  background: color #f5f5f5; ;
+  width: 3rem;
+ }
  
  .categoriesItem:hover {background-color: #66b9e5}
  .categoriesItem:active {
@@ -143,8 +150,25 @@ opacity: 0.8;
     color: white;
     background-color:#9395d3;
   }
-  
-  .filterDisplay{
+  .sideLayoutSideFilter{
+    /* width: 80rem; */
+    /* height: 66vh; */
+    position: relative;
+   margin: 0;
+   width: 98%;
+background-color: gainsboro;
+
+  }
+  .sidefilterDisplay{
+    /* position: relative; */
+    /* margin: 0.5rem 1rem 0.5rem 1rem  ;  */
+    padding: 1rem;
+    /* width: 15%; */
+    /* border-right: 2px solid black; */
+    
+  }
+
+   .filterDisplay{
     position: relative;
     margin: 0.5rem 1rem 0.5rem 1rem  ; 
     padding: 1rem;
@@ -152,6 +176,7 @@ opacity: 0.8;
     border-right: 2px solid black;
     
   }
+
 
   .filterHeading{
     padding: 1rem 0 0 0 ;
@@ -440,4 +465,56 @@ opacity: 0.8;
   border-top: 1px solid black;
   padding-top: 0.5rem;
   
+}
+.BtnMobileNavICon{
+  opacity: 0;
+  position: relative;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.BtnMobileNavICon:active{
+  background-color: #8a8df3;
+}
+.AddAddressDiv{
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  border: 3px solid #9395d3;
+  background-color: #e8e8eb;
+  top: 31%;
+  left: 58%;
+  margin-top: -100px;
+  margin-left: -250px;
+}
+
+.MobileNavICon div {
+  width: 35px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+  opacity: 0;
+
+}
+
+@media only screen and (max-width: 600px) { 
+
+
+.filterDisplay{
+  opacity: 0;
+ width: 0;
+ padding: 0;
+ margin: 12px;
+}
+.BtnMobileNavICon , .MobileNavICon div {
+  opacity: 1;
+cursor: pointer;
+}
+.wishlistIcon{
+  left: 10.5rem;
+}
+.AddAddressDiv{
+  top: 43%;
+  left: 75%;
+}
 }

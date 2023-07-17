@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
         Email:"",
         Password:"",
         HouseNo:"",
-         City:"",
+        City:"",
         State:"",
         Country:"",
         Phoneno:""
@@ -29,24 +29,39 @@ import { useNavigate } from "react-router-dom";
     
     }) 
 
-    const handleGuestLogin= () => {
+  
+    const handleGuestLogin = async()=>{
         setuserRegistration({
-            Firstname:"Vivek",
-            Lastname:"Kumar",
+            Firstname:"Adarsh",
+            Lastname:"Balika",
             Email:"adarshbalika@gmail.com",
             Password:"adarshbalika",
-            HouseNo:"180/28",
-            City:"Gurugram",
-            State:"Haryana",
-            Country:"India",
-            Phoneno:"9045768943"
-        })
-            setuserLogin({
-                Email:"adarshbalika@gmail.com",
-        Password:"adarshbalika",
+    
+        })   
+        try{
+    
+            const response = await fetch("/api/auth/login",
+            {
+                method:"POST",
+                body:JSON.stringify({email:"adarshbalika@gmail.com", password:"adarshbalika"})
             })
-            handleToLogin()  
+           if(response.status===200){
+        
+            const {foundUser,encodedToken} = await response.json()
+         
+            setuserLogin((prev)=>({...prev,user:{...foundUser}}))
+          
+            localStorage.setItem("token",encodedToken)   
+          
+            Navigate("/product")
+        }
+        setisLoading(false) 
+           
+        }catch(e){
+            console.error(e)
+        }
     }
+
 
     const handleToLogin = async()=>{
     
@@ -58,9 +73,13 @@ import { useNavigate } from "react-router-dom";
                 body:JSON.stringify({email:userLogin.Email, password:userLogin.Password})
             })
            if(response.status===200){
+        
             const {foundUser,encodedToken} = await response.json()
+         
             setuserLogin((prev)=>({...prev,user:{...foundUser}}))
+          
             localStorage.setItem("token",encodedToken)   
+          
             Navigate("/product")
         }
         setisLoading(false) 
@@ -77,7 +96,7 @@ import { useNavigate } from "react-router-dom";
     try{
         const response = await fetch("/api/auth/signup",{
             method:"POST",
-            body: JSON.stringify({email:userRegistration.Email , password:userRegistration.Password,Firstname:userRegistration.Firstname, Lastname:userRegistration.Lastname })
+            body: JSON.stringify({email:userRegistration.Email , password:userRegistration.Password, Firstname:userRegistration.Firstname, Lastname:userRegistration.Lastname })
         }) 
         if(response.status === 201){
             Navigate("/signIn")
