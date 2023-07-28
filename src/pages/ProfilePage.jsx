@@ -40,7 +40,7 @@ return (
     </div>
     </div>
    <div style={{display:"flex",justifyContent:"center"}} >
-   <div style={{border:"1px solid",width:"18rem"}} >
+   <div style={{border:"1px solid",width:"22rem",padding:"0.5rem"}} >
    <div style={{display:"flex",justifyContent:"center"}} >
     {ProfileDiv?<button style={{backgroundColor:"#b2b4eb",color:"white"}} className='ProfileButtonSummary' > Profile </button>: <button className='ProfileButtonSummary' onClick={()=>{ setProfileDiv(!ProfileDiv);setAddressDiv(!AddressDiv)}} >Profile</button>}
    {AddressDiv? <button style={{backgroundColor:"#b2b4eb",color:"white"}} className='ProfileButtonSummary' >Address</button>: <button className='ProfileButtonSummary'  onClick={()=>{ setAddressDiv(!AddressDiv);setProfileDiv(!ProfileDiv)}} >Address</button>}

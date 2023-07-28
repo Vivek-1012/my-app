@@ -35,8 +35,8 @@ const AddAddressForm = () => {
     <label htmlFor='State'>State</label>
     <input value={AddAddressForm.State} placeholder='State' type='text' onChange={handleAddressInput} autoComplete='off' name='State' id='State' />
 </div>
-<button type='submit'>Registration</button>
-<button onClick={()=>setAddAdressDiv(false)} >Cancel</button>
+<button style={{padding:"0.5rem",cursor:"pointer",backgroundColor:"#900C3F",color:"white",borderRadius:"1rem",margin:"0.5rem"}} type='submit'>Registration</button>
+<button style={{padding:"0.5rem",cursor:"pointer",backgroundColor:"#FF5733",borderRadius:"1rem",margin:"0.5rem"}} onClick={()=>setAddAdressDiv(false)} >Cancel</button>
     </form>
       
     </>
