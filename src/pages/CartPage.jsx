@@ -64,8 +64,8 @@ const CartPage = () => {
     <div className='cartPageLayoutBillLayout'>
       <div className='billLayout' >
         <div className='billLayoutCoupon'>
-      <p>Have A Coupon ?</p>
-         <button>Apply</button>
+      {/* <p>Have A Coupon ?</p> */}
+         
          </div>         
       <p className='PriceDetails'>Price Details</p>
       <div >
@@ -86,7 +86,7 @@ const CartPage = () => {
       <p><strong>total Bill</strong></p><p> <strong>₹{totalAmount}</strong></p>
     </div>
     <div style={{alignContent:"center"}} >
-      <Link to="/checkout" ><button>Checkout</button></Link>
+      <Link to="/checkout" ><button className='billButton' style={{backgroundColor:"#6a6db9",color:"white"}} >Checkout</button></Link>
     </div>
     </div>
     </div>

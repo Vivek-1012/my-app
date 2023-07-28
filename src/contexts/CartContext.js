@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext();
 
@@ -12,6 +13,7 @@ export function CartProvider({children}){
    const [discountedAmount,setDiscountedAmount] = useState()  
 
   const handleAddToCart = async(product)=>{
+    <ToastContainer /> 
        
     
    try{
@@ -22,7 +24,8 @@ export function CartProvider({children}){
      })
       
      setCartList(await response.json()); 
-    
+     toast.success("Added to Cart!")
+     
     }
      catch(e){
         console.error(e)
@@ -38,6 +41,7 @@ export function CartProvider({children}){
         });
 
         setCartList(await response.json()); 
+     toast.success("Remove from Cart!")
       
     }catch(e){
         console.error(e)

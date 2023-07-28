@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
  
@@ -14,11 +16,7 @@ import { useNavigate } from "react-router-dom";
         Lastname:"",
         Email:"",
         Password:"",
-        HouseNo:"",
-        City:"",
-        State:"",
-        Country:"",
-        Phoneno:""
+       
       })
     
       const [userLogin,setuserLogin] = useState({
@@ -29,14 +27,14 @@ import { useNavigate } from "react-router-dom";
     
     }) 
 
-  
+    
     const handleGuestLogin = async()=>{
         setuserRegistration({
             Firstname:"Adarsh",
             Lastname:"Balika",
             Email:"adarshbalika@gmail.com",
             Password:"adarshbalika",
-    
+             
         })   
         try{
     
@@ -52,7 +50,7 @@ import { useNavigate } from "react-router-dom";
             setuserLogin((prev)=>({...prev,user:{...foundUser}}))
           
             localStorage.setItem("token",encodedToken)   
-          
+              toast.success("Login Successful ...!!")               
             Navigate("/product")
         }
         setisLoading(false) 
@@ -77,7 +75,7 @@ import { useNavigate } from "react-router-dom";
             const {foundUser,encodedToken} = await response.json()
          
             setuserLogin((prev)=>({...prev,user:{...foundUser}}))
-          
+            toast.success("Login Successful ...!!")
             localStorage.setItem("token",encodedToken)   
           
             Navigate("/product")
@@ -86,12 +84,20 @@ import { useNavigate } from "react-router-dom";
            
         }catch(e){
             console.error(e)
+        toast.error("Authentication fails..!!")
+
         }
     }
  
       
  
    const handleToSignUp =async()=>{
+
+    if( userRegistration.Email === "" || userRegistration.Firstname === "" ||userRegistration.Lastname === "" ||userRegistration.Password === ""   )
+     {
+        toast.error("Not registered ...!!")
+        console.log("error in registration")
+    }else{
     
     try{
         const response = await fetch("/api/auth/signup",{
@@ -100,16 +106,17 @@ import { useNavigate } from "react-router-dom";
         }) 
         if(response.status === 201){
             Navigate("/signIn")
-            console.log("Signup")
+            toast.success("Registraion successful ...!!")
         
         }          
         setisLoading(false)
         
     }catch(e){
         console.error(e)
+        toast.error("Fill all inputs")
     }
    }
-
+   }
 //   useEffect(()=>{localStorage.getItem("token")&&(()=>{ setuserRegistration({
 //     Firstname:"Vivek",
 //     Lastname:"Kumar",
@@ -126,6 +133,7 @@ import { useNavigate } from "react-router-dom";
 // Password:"adarshbalika",
 //     })})()},[])
 
+< ToastContainer/>
      
 
   

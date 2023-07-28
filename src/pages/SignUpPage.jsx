@@ -54,7 +54,7 @@ const SignUpPage = () => {
        </div>
         <button className='AuthFormButton3' type="submit" onClick={()=>handleToSignUp()}>Registration</button>
       <div style={{textAlign:"center",borderRadius:"1rem",backgroundColor:"white",width: "45%", alignSelf: "center",padding: "0.5rem"}} >
-        <Link style={{textDecoration:"none",color:"black"}} to="/signIn" > Return to SignIN </Link>
+        <Link style={{textDecoration:"none",color:"black"}} to="/signIn" > Return to SignIn </Link>
       </div>
 
        </div> 

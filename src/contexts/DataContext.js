@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { useAuth } from "./AuthContext";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const DataContext = createContext();
  
@@ -123,18 +124,26 @@ export function DataProvider({children}){
    const value = e.target.value;
    setAddAddressForm({...AddAddressForm, [name]: value })
     }
-       
+    <ToastContainer /> 
    const handleAddressSubmit=(e)=>{
+    if(AddAddressForm.City === "" || AddAddressForm.HouseNo === "" || AddAddressForm.Locality === "" || AddAddressForm.State === "" || AddAddressForm.District === "" || AddAddressForm.Pincode === ""   ){
+      e.preventDefault()
+      // console.log("error")
+      toast.warn("Enter all the fields")
+      
+    } else{
     e.preventDefault();
-
+    toast.success("Address added")
     const newRecord = {...AddAddressForm,id:
        new Date().getTime().toString()  }
 
        setaddressRecord([...addressRecord, newRecord]);
        setAddAdressDiv(false)
       setAddAddressForm({HouseNo:"",Locality:"",City:"",Pincode:"",State:"",District:""})
-      }
-   console.log(addressRecord)
+     } }
+  
+
+     console.log(addressRecord)
          
     return(
     <DataContext.Provider value={{AddAdressDiv,setaddressRecord,setAddAdressDiv,addressRecord,handleAddressSubmit,AddAddressForm,setAddAddressForm,inputHandler,handlerToCLear,selectCategories,setStore,setSelectCategories,categoriesList,input,setInput,productList,handlerSortByChange,handlerPriceRangeChange,handlerRateByChange,handlerCategoriesChange,selectRating,selectCategories,selectSortBy,selectPriceRange,handleAddressInput}} >

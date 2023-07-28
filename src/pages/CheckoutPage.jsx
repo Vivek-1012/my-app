@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
 import { useData } from '../contexts/DataContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CheckoutPage = () => {
   const {userRegistration} = useAuth()
@@ -13,10 +16,22 @@ const CheckoutPage = () => {
   const amountDiscounted = finalAmount - finalAmount/10
   setDiscountedAmount(amountDiscounted )
   console.log(chooseAddress)
-  
-  return (
+  const Navigate = useNavigate();
+//   const {HouseNo,Locality,City,District,Pincode,State} = item;
+const OrderPlacehandler = (chooseAddress) =>{
+    if( chooseAddress === undefined ){
+       toast.error("Address not selected..!")
+      
+    }else{
+      toast.success("Address selected")
+        
+    }
+}
+
+
+
+return (
   <>
-    <div>CheckoutPage</div>
     <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}} >
         
         <div style={{margin:"1rem"}} >
@@ -27,7 +42,7 @@ const CheckoutPage = () => {
                     return(
                 <li key={id} style={{width:"18rem"}} >
                     <div key={id}>
-                    <input type="radio" onChange={(e)=>setChooseAddress(e.target.value)} value={``} name="" id="" /> 
+                    <input type="radio" onChange={(e)=>setChooseAddress(e.target.value)} value={`${HouseNo},${Locality},${City},${District},${Pincode},${State}`} name="" id="" /> 
                     {HouseNo},{Locality},{City},{District},{Pincode},{State}</div>
                     
                 </li>)}
@@ -82,11 +97,12 @@ const CheckoutPage = () => {
                                 </select> </p>
                             
             <div style={{alignSelf:"center"}} >
-                <Link to="/order_summary" ><button>Place Order</button></Link>
+                { chooseAddress !== undefined || finalAmount === 0 ?  <button onClick={()=>Navigate("/order_summary")} className='billButton' >Place Order </button>     : <button onClick={OrderPlacehandler(chooseAddress)} style={{backgroundColor:"red"}} className='billButton' >Place Order</button>}
                 </div>
              </div>
     
     </div>
+    <ToastContainer />
 </>
   )
   

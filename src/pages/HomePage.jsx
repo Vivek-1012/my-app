@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 
 const HomePage = () => {
    const{categoriesList,setSelectCategories} = useData()
-   
+console.log(categoriesList);   
    return (
       <>
       <body className='homeBackground'>

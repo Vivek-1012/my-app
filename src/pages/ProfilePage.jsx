@@ -3,6 +3,8 @@ import { useAuth } from '../contexts/AuthContext'
 import { Link, useSearchParams } from 'react-router-dom'
 import AddAddressForm from '../component/AddAddressForm'
 import { useData } from '../contexts/DataContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePage = () => {
 const {AddAdressDiv,setAddAdressDiv,setaddressRecord,addressRecord} = useData();
@@ -10,13 +12,12 @@ const [ProfileDiv,setProfileDiv]=useState(true)
 const [AddressDiv,setAddressDiv] = useState(false)
 const {userRegistration}=useAuth()
 
-const handleToEditAddress = (id)=>{
-
-}
 
 
 const handleToDeletAddress=(id)=>{
   setaddressRecord(addressRecord.filter((lst)=> lst.id !== id))
+  toast.success("Address deleted..!")
+ 
 
 }
 return (
@@ -41,8 +42,8 @@ return (
    <div style={{display:"flex",justifyContent:"center"}} >
    <div style={{border:"1px solid",width:"18rem"}} >
    <div style={{display:"flex",justifyContent:"center"}} >
-    {ProfileDiv?<button> Profile </button>: <button  onClick={()=>{ setProfileDiv(!ProfileDiv);setAddressDiv(!AddressDiv)}} >Profile</button>}
-   {AddressDiv? <button>Address</button>: <button  onClick={()=>{ setAddressDiv(!AddressDiv);setProfileDiv(!ProfileDiv)}} >Address</button>}
+    {ProfileDiv?<button style={{backgroundColor:"#b2b4eb",color:"white"}} className='ProfileButtonSummary' > Profile </button>: <button className='ProfileButtonSummary' onClick={()=>{ setProfileDiv(!ProfileDiv);setAddressDiv(!AddressDiv)}} >Profile</button>}
+   {AddressDiv? <button style={{backgroundColor:"#b2b4eb",color:"white"}} className='ProfileButtonSummary' >Address</button>: <button className='ProfileButtonSummary'  onClick={()=>{ setAddressDiv(!AddressDiv);setProfileDiv(!ProfileDiv)}} >Address</button>}
    </div>
    <div>
 { ProfileDiv && <div >
@@ -61,7 +62,7 @@ return (
   <div>
   <ul style={{listStyle:"none"}} >{addressRecord.map(({HouseNo,Locality,City,District,Pincode,State,id})=><li style={{padding:"0.5rem",margin:"0.5rem",background:"lightblue"}} key={id}>
     <p>{HouseNo} {Locality} {City}, {Pincode},{District},{State}</p> 
-    <button onClick={()=>handleToEditAddress(id)} >Edit</button>
+    {/* <button onClick={()=>handleToEditAddress(id)} >Edit</button> */}
     <button onClick={()=>handleToDeletAddress(id)}>Delete</button>
 
   </li>)}</ul>
@@ -72,7 +73,7 @@ return (
   
   </div>
   <div>
-    <button onClick={()=>setAddAdressDiv(true)}  >Add address</button>
+    <button onClick={()=>setAddAdressDiv(true)}>Add address</button>
     
   </div>
 
@@ -84,7 +85,7 @@ return (
    </div>
    </div>
    
-
+     <ToastContainer />
     </>
 )
 }

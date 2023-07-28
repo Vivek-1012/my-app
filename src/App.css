@@ -497,6 +497,28 @@ background-color: gainsboro;
 
 }
 
+.billButton{
+ background-color: #5acbd8;
+ padding: 0.5rem 1rem;
+ margin: 0.5rem; 
+ border: 1px solid black;
+ border-radius: 1rem;
+ cursor: pointer;
+}
+.billButton:hover{
+  font-weight:bold ;
+  color: #f3f3f3;;
+}
+.ProfileButtonSummary{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: large;
+  border: 1px solid #6a6db9;
+  background-color: #8a8df3;
+cursor: pointer;
+margin-bottom: 0.5rem;
+}
+
 @media only screen and (max-width: 600px) { 
 
 

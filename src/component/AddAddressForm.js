@@ -4,9 +4,9 @@ import React from 'react'
 import { useData } from '../contexts/DataContext'
 
 const AddAddressForm = () => {
-  const{handleAddressInput,AddAddressForm,setAddAddressForm,handleAddressSubmit} = useData();
+  const{handleAddressInput,AddAddressForm,setAddAdressDiv,setAddAddressForm,handleAddressSubmit} = useData();
   
-
+ 
   
     return (
     <>
@@ -25,7 +25,7 @@ const AddAddressForm = () => {
 </div>
 <div>
     <label htmlFor='Pincode'>Pincode</label>
-    <input value={AddAddressForm.Pincode} placeholder='Pincode' type='text' onChange={handleAddressInput} autoComplete='off' name='Pincode' id='Pincode' />
+    <input value={AddAddressForm.Pincode} placeholder='Pincode' type="number" onChange={handleAddressInput} autoComplete='off' name='Pincode' id='Pincode' />
 </div>
 <div>
     <label htmlFor='District'>District</label>
@@ -36,6 +36,7 @@ const AddAddressForm = () => {
     <input value={AddAddressForm.State} placeholder='State' type='text' onChange={handleAddressInput} autoComplete='off' name='State' id='State' />
 </div>
 <button type='submit'>Registration</button>
+<button onClick={()=>setAddAdressDiv(false)} >Cancel</button>
     </form>
       
     </>

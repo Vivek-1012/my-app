@@ -31,7 +31,7 @@ const SignInPage = () => {
       return location.state ? Navigate(location?.state?.from?.pathname): Navigate("/product")
       }}>Sign In</button>
      
-      <button  className='AuthFormButton2' onClick={()=>handleGuestLogin()} > Guest Login (Double click) </button>  
+      <button  className='AuthFormButton2' onClick={()=>handleGuestLogin()} > Guest Login</button>  
       </div>
       <div style={{textAlign:"center",borderRadius:"1rem",backgroundColor:"white",width: "45%", alignSelf: "center",padding: "0.5rem"}} >
         <Link style={{textDecoration:"none",color:"black"}} to="/signUp" >  New User...?  </Link>
