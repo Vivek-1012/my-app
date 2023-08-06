@@ -49,10 +49,10 @@ const CartPage = () => {
       </div> 
       <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap"}} >
       <div>
-       <button className='CartBillButton' onClick={()=>handleRemoveFromCart(product)} > Remove from cart</button>
+       <button className='CartBillButton1' style={{fontSize:"16px"}} onClick={()=>handleRemoveFromCart(product)} > Remove from cart</button>
        </div>
        <div>{wishlistItem.wishlist?.find(({_id})=> _id === product._id )?<Link to="/wishlist"><button className='CartBillButton' >Go to wishList</button></Link>
-        :<button className='CartBillButton' onClick={()=>handleAddToWishlist(product)}>Add to wishList</button>}
+        :<button className='CartBillButton'  onClick={()=>handleAddToWishlist(product)}>Add to wishList</button>}
         </div>
        </div>
       </li>)})}

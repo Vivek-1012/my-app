@@ -28,28 +28,30 @@ const OrderPlacehandler = (chooseAddress) =>{
     }
 }
 
-
+console.log(finalAmount)
 
 return (
   <>
     <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly"}} >
         
         <div style={{margin:"1rem"}} >
-            <h2>Choose Address</h2>
+            <h2 style={{margin:"0.5rem"}} >Choose Address</h2>
             <div  >
                 <ol style={{listStyle:"none",display:"flex",flexDirection:"column"}}>{addressRecord.map((item)=>{
                     const {HouseNo,Locality,City,District,Pincode,State,id} = item;
                     return(
-                <li key={id} style={{width:"18rem"}} >
-                    <div key={id}>
+                <li key={id} style={{width:"22rem"}} >
+                     <label>
+                    <div style={{marginBottom:"1rem"}} key={id}>
+                       
                     <input type="radio" onChange={(e)=>setChooseAddress(e.target.value)} value={`${HouseNo},${Locality},${City},${District},${Pincode},${State}`} name="" id="" /> 
-                    {HouseNo},{Locality},{City},{District},{Pincode},{State}</div>
+                    {HouseNo},{Locality},{City},{District},{Pincode},{State}</div></label>
                     
                 </li>)}
                 )}
 
                 </ol>
-                <Link style={{textDecoration:"none",color:"black",padding:"0 0.5rem",background:"lightblue",borderRadius:"0.5rem"}}  to="/profile" >Add adress</Link>
+                <Link style={{textDecoration:"none",fontSize:"large",color:"black",border:"1px solid black",padding:"0.5rem 1rem",background:"lightblue",borderRadius:"0.5rem",margin:"0.5rem"}}  to="/profile" >Add adress</Link>
             </div>
         </div>
        
@@ -82,7 +84,7 @@ return (
                     <p style={{paddingTop:"0.5rem"}}>{discountedAmount}</p>
                 </div>
             </div>
-            <div style={{borderBottom:"2px solid black",paddingBottom:"0.5rem"}}>
+            <div style={{borderBottom:"2px solid black",paddingBottom:"0.5rem",wordWrap:"break-word",width:"15rem"}}>
                 <p> <strong>Deliver to:</strong> </p>
                 <p>{chooseAddress}</p>
                             </div>
@@ -97,7 +99,7 @@ return (
                                 </select> </p>
                             
             <div style={{alignSelf:"center"}} >
-                { chooseAddress !== undefined || finalAmount === 0 ?  <button onClick={()=>Navigate("/order_summary")} className='billButton' >Place Order </button>     : <button onClick={OrderPlacehandler(chooseAddress)} style={{backgroundColor:"red"}} className='billButton' >Place Order</button>}
+                { chooseAddress !== undefined && finalAmount !== 0 ?  <button onClick={()=>Navigate("/order_summary")} className='billButton' >Place Order </button>     : <button onClick={OrderPlacehandler(chooseAddress)} style={{backgroundColor:"#d85a5a"}} className='billButton' >Place Order</button>}
                 </div>
              </div>
     

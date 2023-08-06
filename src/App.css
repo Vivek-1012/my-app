@@ -42,21 +42,38 @@
 
   .homeBackground{
     /* background-color: black; */
-  background-image: url(https://images.unsplash.com/photo-1614620026694-f5f38182ab9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80);
-  height: 100%;
+  /* background-image: url(https://images.unsplash.com/photo-1614620026694-f5f38182ab9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80);
+  height: 100%; */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-color: #f5f5f5; */
+
+}
+.nodiv{
+  position: relative;
+  top: -1rem;
+  /* background-color: black; */
+  border-radius: 50%;
+  padding:0 6px 0 6px;
+  right: 8px;
+}
+.navIcon{
+  position: relative;
+  height: 2rem;
+  border-radius: 1rem;
+}
+ .homeWallpaper{
+  background-image: url(https://images.unsplash.com/photo-1463320726281-696a485928c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  border-radius: 2rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-}
- .homeWallpaper{
-  background-color: black;
-  border-radius: 2rem;
   /* width: 90%; */
   /* margin-left: 5rem; */
   height: 45vh;
   width: 80%;
-opacity: 0.8;
+/* opacity: 0.8; */
  margin-top: 1rem;
   
   }
@@ -96,6 +113,7 @@ opacity: 0.8;
  }
 
  .categoriesItem{
+  /* text-transform:; */
   width: 200px;
   height: 200px;
   padding: 15px 25px;
@@ -112,8 +130,8 @@ opacity: 0.8;
  .wishlistIcon{
   position: relative;
   top: -13.9rem;
-  left:11.5rem;
-  
+  left:180px;
+  cursor: pointer;
   background: color #f5f5f5; ;
   width: 3rem;
  }
@@ -343,14 +361,7 @@ background-color: gainsboro;
   background-repeat: no-repeat;
   background-size: cover;
 }
- /* .AuthBody{
-  height: 105vh;
-  background-image: url(https://wallpaperaccess.com/full/124383.jpg);
-  box-shadow:  0 12px 20px 10px black;
-  
-  
- } */
-  
+ 
 .AuthForminput{
   background-color: white;
   padding: 0.3rem ;
@@ -420,9 +431,40 @@ background-color: gainsboro;
     width: 12rem;
     padding: 0.5rem;
   }
-  .CartBillButton{
+  .CartBillButton, .CartBillButton1{
     width: 9rem;
     padding: 0.5rem;
+    height: 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+  .CartBillButton1:hover , .CartBillButton:hover{
+    font-weight: bold;
+  }
+  .explorebtn{
+    text-decoration: none;
+    margin: 0.5rem;
+    background-color: #3498db;
+   padding: 0.5rem;
+   border-radius: 1rem;
+   color: white;
+   cursor: pointer;
+  }
+
+  .explorebtn:hover{
+    color: #3498db;
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .CartBillButton{
+    background-color: rgb(181, 109, 233);
+    color: white;
+  }
+  .CartBillButton1{
+    font-size: 18px;
+   background-color: rgb(251, 128, 107);
   }
 
   .btnCart{

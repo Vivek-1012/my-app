@@ -30,16 +30,17 @@ return (
     <div className="App">
       <nav className="navbar " style={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}}>
         <div>
-        <NavLink className="navItem" to="/" > Home </NavLink>
+        <NavLink className="navItem" to="/" > Pustakभंडार </NavLink>
         </div>
         <div  >
     <NavLink to="/product" ><input to="/product" className="NavSearch" type="text" value={input} onChange={inputHandler} placeholder="Search..." /></NavLink>
         </div>
         <div style={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}} >
         <NavLink className="navItem" to="/product" > Shop </NavLink> 
-        <NavLink className="navItem" to="/wishlist" > 🤍{wishlistItem.wishlist?.length} </NavLink>  
-        <NavLink className="navItem" to="/cart" > 🛒{cartList.cart?.length} </NavLink> 
-        <NavLink className="navItem" to="/profile" > 👤 </NavLink>        
+        <NavLink className="navItem" to="/wishlist" > <img className="navIcon" src={`https://cdn-icons-png.flaticon.com/512/8830/8830807.png`} />
+        <span className="nodiv" >{wishlistItem.wishlist?.length}</span> </NavLink>  
+        <NavLink className="navItem" to="/cart" ><img className="navIcon" src={`https://e7.pngegg.com/pngimages/861/787/png-clipart-emoji-shopping-cart-shopping-bags-trolleys-emoji-angle-vehicle.png`} /> <span className="nodiv" >{cartList.cart?.length}</span> </NavLink> 
+        <NavLink className="navItem" to="/profile" > <img className="navIcon" src={`https://e7.pngegg.com/pngimages/782/114/png-clipart-profile-icon-circled-user-icon-icons-logos-emojis-users.png`} /> </NavLink>        
         </div>
       </nav>
      <Routes>

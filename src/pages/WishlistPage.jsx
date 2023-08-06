@@ -9,12 +9,11 @@ const WishlistPage = () => {
  const listWishlistItem = wishlistItem.wishlist
 
  return (<>
-    <div>WishlistPage</div>
     <div>
     <div style={{textAlign:"center"}} >
       <h2>WishList</h2> ({listWishlistItem?.length} items)     
     </div>
-    <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",padding:"1rem"}} >
+    {listWishlistItem?.length === 0 ? <div><p style={{textAlign:'center',margin:"0.5rem"}} >Select something <Link className='explorebtn' to="/product" > Explore </Link>  </p></div>  : <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",padding:"1rem"}} >
     <div>
     <div className='cartPageLayoutCardLayout'>
     <ol className='cartBillitemDisplay'>{listWishlistItem?.map((product)=>{
@@ -42,16 +41,16 @@ const WishlistPage = () => {
       </div> 
       <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap"}} >
       <div>
-       <button className='CartBillButton' onClick={()=>handleRemoveFromWishlist(product)} > Remove from wishlist</button>
+       <button className='CartBillButton' onClick={()=>handleRemoveFromWishlist(product)} >Remove from wishlist</button>
        </div>
-     <div> {cartList.cart?.find(({_id})=> _id === product._id ) ? <Link to="/cart" ><button className='CartBillButton'>Go to Cart</button></Link>:<button className='CartBillButton' onClick={()=>handleAddToCart(product)}>Add to Cart</button> } </div>
+     <div> {cartList.cart?.find(({_id})=> _id === product._id ) ? <Link to="/cart" ><button className='CartBillButton1'>Go to Cart</button></Link>:<button className='CartBillButton1' onClick={()=>handleAddToCart(product)}>Add to Cart</button> } </div>
        </div>
       </li>)})}
       
     </ol>
     </div>
     </div>
-    </div>
+    </div>}
     </div>
   </>)
 }

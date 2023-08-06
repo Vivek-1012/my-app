@@ -87,7 +87,7 @@ return (
       
       <div><img src={image} alt={title} width={150} height={200} style={{position:"relative"}} />
       <div className='wishlistIcon' >{ wishlistItem.wishlist?.find(({_id})=> _id === product._id )
-          ?<Link to="/wishlist" ><p ><img src={`https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png`} height={45} alt="" /></p></Link>:<p onClick={()=>handleAddToWishlist(product)} ><img src={`https://img.icons8.com/?size=512&id=104&format=png` }  height={40} alt="" /></p>
+          ?<Link to="/wishlist" ><p ><img src={`https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_perfect_SVG_heart.svg/2224px-A_perfect_SVG_heart.svg.png`} height={40} alt="" /></p></Link>:<p onClick={()=>handleAddToWishlist(product)} ><img src={`https://www.svgrepo.com/show/152156/heart-shape.svg` }  height={40} alt="" /></p>
           }</div>
       </div>     <div className='titleAndRating'>
       <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}><Link to={`/productDetails/${_id}`}>{title}</Link></p>
@@ -105,7 +105,7 @@ return (
       <div className='cartButtonDiv'>
         
         {
-          cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"black"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
+          cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"#93BFCF"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
           
         }
         
