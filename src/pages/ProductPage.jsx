@@ -85,7 +85,7 @@ return (
       return (
     <li className='itemDisplayCard' key={_id}>
       
-      <div><img src={image} alt={title} width={150} height={200} style={{position:"relative"}} />
+      <div><img src={image} className='productImage' alt={title} width={150} height={200} style={{position:"relative"}} />
       <div className='wishlistIcon' >{ wishlistItem.wishlist?.find(({_id})=> _id === product._id )
           ?<Link to="/wishlist" ><p ><img src={`https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_perfect_SVG_heart.svg/2224px-A_perfect_SVG_heart.svg.png`} height={40} alt="" /></p></Link>:<p onClick={()=>handleAddToWishlist(product)} ><img src={`https://www.svgrepo.com/show/152156/heart-shape.svg` }  height={40} alt="" /></p>
           }</div>

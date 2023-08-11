@@ -10,10 +10,10 @@ export function DataProvider({children}){
     const [productList,setProductList] = useState([])
     const [categoriesList, setCategoriesList]= useState([])
     const [input, setInput]= useState("");
-    const [selectCategories,setSelectCategories]=useState("");
+    const [selectCategories,setSelectCategories]=useState([]);
     const{isLoading,setisLoading} =useAuth();
-    const [] = useState([])
-    const [addressRecord,setaddressRecord] = useState([])
+   
+  const [addressRecord,setaddressRecord] = useState([])
   const [selectPriceRange,setSelectPriceRange] = useState(0);
   const [AddAddressForm,setAddAddressForm] = useState({HouseNo:"",Locality:"",City:"",Pincode:"",State:"",District:""})
   const [selectRating, setSelectRating] = useState("");
@@ -73,16 +73,17 @@ export function DataProvider({children}){
        
     const handlerRateByChange = (event) =>setSelectRating(event.target.value)
     
-    const handlerCategoriesChange = (event)=>{ 
+     
       
-      if(selectCategories.includes(event.target.value )){
-        setSelectCategories(prev => prev.filter(item => item !== event.target.value))
-      }else{
-        setSelectCategories((prev) => [...prev , event.target.value])
-      }
-    }
-    
-    
+      const handlerCategoriesChange = (event) => {
+        const categoryValue = event.target.value;
+      
+        if (!selectCategories.includes(categoryValue)) {
+          setSelectCategories((prev) => [...prev, categoryValue]);
+        } else {
+          setSelectCategories((prev) => prev.filter(item => item !== categoryValue));
+        }
+      };
     
     
     if(selectCategories){
@@ -128,7 +129,7 @@ export function DataProvider({children}){
    const handleAddressSubmit=(e)=>{
     if(AddAddressForm.City === "" || AddAddressForm.HouseNo === "" || AddAddressForm.Locality === "" || AddAddressForm.State === "" || AddAddressForm.District === "" || AddAddressForm.Pincode === ""   ){
       e.preventDefault()
-      // console.log("error")
+      
       toast.warn("Enter all the fields")
       
     } else{

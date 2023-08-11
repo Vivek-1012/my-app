@@ -42,15 +42,9 @@ const SingleProductPage = () => {
         <p><strong> Binding</strong> :  Hardcover </p>  
         <p><strong>  Language</strong> : English </p>  
         </div>
-        {/* {
-          cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"black"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
-          
-        }
-        { wishlistItem.wishlist?.find(({_id})=> _id === ProductDetails._id )
-          ?<Link to="/wishlist" ><button className='cartButton' style={{backgroundColor:"blue"}} >Go to wishlist</button></Link>:<button className='cartButton' onClick={()=>handleAddToWishlist(product)} >Add to wishlist</button>
-          } */}
+        
         </div>
-        <Link to="/product" style={{textDecoration:"none",fontWeight:"bold"}} > Back to Shop </Link>
+        <Link to="/product" style={{textDecoration:"none",fontWeight:"bold",padding:"0 0.5rem 0 0.5rem",backgroundColor:"#0994ad",borderRadius:"1rem",color:'black',margin:"0.5rem"}} > Back to Shop </Link>
 
         </div>
         </div>

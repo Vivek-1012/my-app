@@ -24,7 +24,7 @@ console.log(categoriesList);
       } = item
       return(
         
-      <Link to="/product" > <button className='categoriesItem' onClick={()=>console.log(setSelectCategories(`${categoryName}`))}  key={id}>
+      <Link to="/product" > <button className='categoriesItem' onClick={()=>(setSelectCategories([`${categoryName}`]))}  key={id}>
   <h4 style={{color:"black",fontSize:"25px"}} >{categoryName}</h4>
   <p>{description}</p>
 </button> </Link>  )})}</div>
