@@ -53,7 +53,7 @@ export function DataProvider({children}){
 
     
     let setStore = productList.products; 
-
+console.log(setStore,"setstroe")
 
   
   
@@ -80,16 +80,18 @@ export function DataProvider({children}){
       
         if (!selectCategories.includes(categoryValue)) {
           setSelectCategories((prev) => [...prev, categoryValue]);
+          console.log(selectCategories,"new")
         } else {
           setSelectCategories((prev) => prev.filter(item => item !== categoryValue));
+          console.log(selectCategories,"old")
         }
       };
+
     
     
-    if(selectCategories){
-      setStore = setStore.filter(lst=> selectCategories.includes(lst.categoryName))
+    if(selectCategories.length > 0){
+      setStore = setStore.filter(lst=> selectCategories === null ? "" : selectCategories.includes(lst.categoryName))
     }
-    
     
     
     
