@@ -16,7 +16,7 @@ import PlacedorderPage from "./pages/PlacedorderPage";
 import { useCart } from "./contexts/CartContext";
 import { useWishlist } from "./contexts/WishlistContext";
 import SingleProductPage from "./pages/SingleProductPage";
-import Footer from "./component/icons/Footer";
+// import Footer from "./component/icons/Footer";
  
 
 
@@ -56,7 +56,7 @@ return (
       <Route path="/order_summary" element={<PlacedorderPage />} />
       <Route path="/productDetails/:ProductID" element={<SingleProductPage />} />
      </Routes>
-     <footer> <Footer/> </footer>
+     <footer>  </footer>
 
 
     </div>

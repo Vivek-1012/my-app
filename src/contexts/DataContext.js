@@ -53,7 +53,6 @@ export function DataProvider({children}){
 
     
     let setStore = productList.products; 
-console.log(setStore,"setstroe")
 
   
   
@@ -90,10 +89,10 @@ console.log(setStore,"setstroe")
     
     
     if(selectCategories.length > 0){
-      setStore = setStore.filter(lst=> selectCategories === null ? "" : selectCategories.includes(lst.categoryName))
+      setStore = setStore.filter(lst=> selectCategories === null ? "" : selectCategories.includes(lst.categoryName)  )
     }
     
-    
+    console.log(setStore)
     
     if(selectPriceRange){
       setStore = setStore?.filter(lst=> lst.price >= selectPriceRange)
@@ -124,12 +123,13 @@ console.log(setStore,"setstroe")
     const handleAddressInput = (e) =>{
    
       const name = e.target.name;
+
    const value = e.target.value;
    setAddAddressForm({...AddAddressForm, [name]: value })
     }
     <ToastContainer /> 
    const handleAddressSubmit=(e)=>{
-    if(AddAddressForm.City === "" || AddAddressForm.HouseNo === "" || AddAddressForm.Locality === "" || AddAddressForm.State === "" || AddAddressForm.District === "" || AddAddressForm.Pincode === ""   ){
+    if(AddAddressForm && AddAddressForm && AddAddressForm && AddAddressForm && AddAddressForm && AddAddressForm  ){
       e.preventDefault()
       
       toast.warn("Enter all the fields")
@@ -146,7 +146,7 @@ console.log(setStore,"setstroe")
      } }
   
 
-     console.log(addressRecord)
+
          
     return(
     <DataContext.Provider value={{AddAdressDiv,setaddressRecord,setAddAdressDiv,addressRecord,handleAddressSubmit,AddAddressForm,setAddAddressForm,inputHandler,handlerToCLear,selectCategories,setStore,setSelectCategories,categoriesList,input,setInput,productList,handlerSortByChange,handlerPriceRangeChange,handlerRateByChange,handlerCategoriesChange,selectRating,selectCategories,selectSortBy,selectPriceRange,handleAddressInput}} >

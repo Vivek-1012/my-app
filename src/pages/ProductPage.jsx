@@ -5,6 +5,7 @@ import { useWishlist } from '../contexts/WishlistContext'
 import { Link } from 'react-router-dom'
 import Navbutton from '../component/Navbutton'
 import FilterNavbar from '../component/FilterNavbar'
+import ExploreCard from '../component/ExploreCard'
  
 
 const ProductPage = () => {
@@ -49,22 +50,22 @@ return (
     <div className='filterHeading'>Rating</div>
     <div>
       <ol style={{listStyle:"none"}}>
-      <lable><li><input type="radio" value="1" checked={selectRating==="1"} onChange={handlerRateByChange} /> 1 Stars & above</li></lable>
-      <lable><li><input type="radio" value="2" checked={selectRating==="2"} onChange={handlerRateByChange} /> 2 Stars & above</li></lable>
-      <lable><li><input type="radio" value="3" checked={selectRating==="3"} onChange={handlerRateByChange} /> 3 Stars & above</li></lable>
-      <lable><li><input type="radio" value="4" checked={selectRating==="4"} onChange={handlerRateByChange} /> 4 Stars & above</li></lable>
+      <label><li><input type="radio" value="1" checked={selectRating==="1"} onChange={handlerRateByChange} /> 1 Stars & above</li></label>
+      <label><li><input type="radio" value="2" checked={selectRating==="2"} onChange={handlerRateByChange} /> 2 Stars & above</li></label>
+      <label><li><input type="radio" value="3" checked={selectRating==="3"} onChange={handlerRateByChange} /> 3 Stars & above</li></label>
+      <label><li><input type="radio" value="4" checked={selectRating==="4"} onChange={handlerRateByChange} /> 4 Stars & above</li></label>
       </ol>
     </div>
     <div className='filterHeading'>Sort by</div>
     <div>
       <ol style={{listStyle:"none"}}>
-      <lable>
+      <label>
     <li><input type="radio" value="Low" checked={selectSortBy==="Low"} onChange={handlerSortByChange} />Price- High to Low</li>
-    </lable>
+    </label>
     
-    <lable>   
+    <label>   
     <li>
-      <input type="radio" value="High" checked={selectSortBy==="High"} onChange={handlerSortByChange} />Price- Low to High</li></lable>
+      <input type="radio" value="High" checked={selectSortBy==="High"} onChange={handlerSortByChange} />Price- Low to High</li></label>
       
     </ol> 
     </div>
@@ -79,40 +80,7 @@ return (
     {setStore?.length} items
     {setStore?.length === 0 ?<p style={{fontSize:"40px",padding:"1rem",margin:"1rem"}} > "No Item to show... 🤐"</p>:
       <div >
-    <ol className='itemDisplay'>{setStore?.map((product)=>{
-      
-      const {title,_id,actualPrice,author,image,price,discount,rating} = product;
-      return (
-    <li className='itemDisplayCard' key={_id}>
-      
-      <div><img src={image} className='productImage' alt={title} width={150} height={200} style={{position:"relative"}} />
-      <div className='wishlistIcon' >{ wishlistItem.wishlist?.find(({_id})=> _id === product._id )
-          ?<Link to="/wishlist" ><p ><img src={`https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_perfect_SVG_heart.svg/2224px-A_perfect_SVG_heart.svg.png`} height={40} alt="" /></p></Link>:<p onClick={()=>handleAddToWishlist(product)} ><img src={`https://www.svgrepo.com/show/152156/heart-shape.svg` }  height={40} alt="" /></p>
-          }</div>
-      </div>     <div className='titleAndRating'>
-      <p className='displayCardTitle' style={{textDecoration:"none",color:"Purple",fontSize:"18px",fontWeight:"bold"}}><Link to={`/productDetails/${_id}`}>{title}</Link></p>
-      <p className='displayCardRating'> {rating}★</p>
-      </div>
-      <p className='displayCardAuthor' >{author}</p>
-      <div className='accountDetails' >      
-      <p className='displayCardPrice'> ₹{price}  </p>
-      <p className='displayCardActualPrice'style= {{color:'grey'}}> ₹{actualPrice} </p>
-      <p className='displayCardCrossPrice'> | </p>
-      <p className='displayCardDiscount' style= {{color:'blue'}} > ({discount} OFF) </p>
-      </div>    
-      
-
-      <div className='cartButtonDiv'>
-        
-        {
-          cartList.cart?.find(({_id})=> _id === product._id )? <Link to="/cart" ><button className='cartButton'style={{background:"#93BFCF"}} > Go to Cart</button></Link>:<button onClick={()=>handleAddToCart(product)} className='cartButton'>Add to cart</button> 
-          
-        }
-        
-      
-        </div>
-               
-    </li>)})}</ol></div>}
+    <ol className='itemDisplay'>{setStore?.map((product,index)=>< ExploreCard product={product} key={index} />)}</ol></div>}
     </div>
     </div>
     </>

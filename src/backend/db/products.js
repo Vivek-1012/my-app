@@ -64,7 +64,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    image:`https://kbimages1-a.akamaihd.net/f95bd34c-27b1-470c-b036-6f2c74250f78/1200/1200/False/the-power-of-habit-2.jpg` ,
+    image:`https://m.media-amazon.com/images/I/71ONWR6eXDL._AC_UF1000,1000_QL80_.jpg` ,
     title: "The Power of Habit",
     author: "Charles Duhigg",
     price: 800,
